@@ -25,13 +25,13 @@
         fetch(
           "https://data.moenv.gov.tw/api/v2/aqx_p_242?language=zh&api_key=c756761f-b277-420c-9ae3-bd6a4389f225"
         )
-          .then((response) => response.jason())
+          .then((response) => response.json())
           .then((data) => {
             //從API數據中提取空氣品質數值
-            const airQualityValue = data.records[0].concrntration;
+            const airQualityValue = data.records[0].concentration;
             console.log(data);
             //更新HTML頁面上的數值
-            airQualityElement = airQualityValue;
+            airQualityElement.textContent = airQualityValue;
           });
       }
       // 3. 建立監聽器使網頁可透過按鈕更新數值
